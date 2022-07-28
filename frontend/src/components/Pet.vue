@@ -79,10 +79,10 @@
       <v-btn
         color="deep-purple lighten-2"
         text
-        @click="sleep"
+        @click="haircut"
         v-if="!editMode"
       >
-        Sleep
+        Haircut
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -168,9 +168,9 @@
         }
       },
       
-      async sleep(){
+      async haircut(){
         try{
-          var temp = await axios.put(axios.fixUrl(this.value._links.sleep.href))
+          var temp = await axios.put(axios.fixUrl(this.value._links.haircut.href))
           this.value = temp.data;
           this.editMode = false;
         }catch(e){

@@ -40,21 +40,21 @@ public class PetController {
     }
 
     @RequestMapping(
-        value = "/{id}/sleep",
+        value = "/{id}/haircut",
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )
-    public Pet sleep(
+    public Pet haircut(
         @PathVariable(value = "id") Long id,
         HttpServletRequest request,
         HttpServletResponse response
     ) throws Exception {
-        System.out.println("##### /pet/sleep  called #####");
+        System.out.println("##### /pet/haircut  called #####");
         Optional<Pet> optionalPet = petRepository.findById(id);
 
         optionalPet.orElseThrow(() -> new Exception("No Entity Found"));
         Pet pet = optionalPet.get();
-        petCommand.sleep();
+        petCommand.haircut();
 
         return pet;
     }
