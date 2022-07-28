@@ -89,7 +89,9 @@ public class Pet {
 
     public void sleep() {}
 
-    public void speak() {}
+    public void speak() {
+        System.out.println("speak");
+    }
 
     public void feed() {}
 }
