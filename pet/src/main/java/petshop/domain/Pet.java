@@ -87,7 +87,9 @@ public class Pet {
 
     public void eat() {}
 
-    public void sleep() {}
+    public void sleep() {
+        System.out.println("sleep");
+    }
 
     public void speak() {
         System.out.println("speak");
