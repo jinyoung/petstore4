@@ -14,5 +14,5 @@ public class PetCommand {
 
     public void feed() {}
 
-    public void sleep() {}
+    public void haircut() {}
 }
