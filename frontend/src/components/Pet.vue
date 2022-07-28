@@ -76,6 +76,14 @@
       >
         Feed
       </v-btn>
+      <v-btn
+        color="deep-purple lighten-2"
+        text
+        @click="sleep"
+        v-if="!editMode"
+      >
+        Sleep
+      </v-btn>
     </v-card-actions>
   </v-card>
 
@@ -153,6 +161,16 @@
       async feed(){
         try{
           var temp = await axios.put(axios.fixUrl(this.value._links.feed.href))
+          this.value = temp.data;
+          this.editMode = false;
+        }catch(e){
+          alert(e.message)
+        }
+      },
+      
+      async sleep(){
+        try{
+          var temp = await axios.put(axios.fixUrl(this.value._links.sleep.href))
           this.value = temp.data;
           this.editMode = false;
         }catch(e){

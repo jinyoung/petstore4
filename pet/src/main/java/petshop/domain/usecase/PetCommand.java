@@ -13,4 +13,6 @@ public class PetCommand {
     PetRepository petRepository;
 
     public void feed() {}
+
+    public void sleep() {}
 }
