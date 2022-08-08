@@ -4,7 +4,7 @@
             <v-list-group v-model="isExpansion">
                 <template v-slot:activator>
                     <v-list-item-content>
-                        <v-list-item-title>Money</v-list-item-title>
+                        <v-list-item-title>Detail</v-list-item-title>
                     </v-list-item-content>
                 </template>
             
@@ -12,8 +12,6 @@
                     <v-list-item-content>
                         <v-list-item-title>Message {{idx+1}}</v-list-item-title>
                         <v-list-item-subtitle>
-                            Amount :  {{item.amount }} <br>
-                            Currency :  {{item.currency }} <br>
                         </v-list-item-subtitle>
                     </v-list-item-content>
                     <v-list-item-action v-if="editMode">
@@ -25,7 +23,7 @@
             </v-list-group>
         </v-list>
 
-        <Money v-if="editMode && tick" offline :isNew="true" :inList="true"
+        <Detail v-if="editMode && tick" offline :isNew="true" :inList="true"
                 :editMode="editMode" v-model="newValue" @add="append">
             <template slot="actions">
                 <v-spacer></v-spacer>
@@ -55,17 +53,17 @@
                     Delete
                 </v-btn>
             </template>
-        </Money>
+        </Detail>
     </div>
 </template>
 
 <script>
-    import Money from '../vo/Money.vue';
+    import Detail from '../Detail.vue';
 
     export default {
-        name: 'MoneyManager',
+        name: 'DetailManager',
         components: {
-            Money
+            Detail
         },
         props: {
             value: [Object, String, Number, Boolean, Array],
@@ -80,6 +78,10 @@
         async created() {
             if (!this.value) {
                 this.value = [];
+            }
+
+            if(this.editMode){
+                this.isExpansion = true
             }
         },
         methods: {
